@@ -406,7 +406,7 @@
 					<70 54 10 0>;
 		qcom,cpr-fuse-quot-offset-scale = <5 5 5>;
 		qcom,cpr-init-voltage-step = <10000>;
-		qcom,cpr-corner-map = <1 1 2 2 2 3 3 3 3 3 3 3 3>;
+		qcom,cpr-corner-map = <1 1 2 2 2 3 3 3 3 3 3 3 3 3 3>;
 		qcom,cpr-corner-frequency-map =
 				<1 960000000>,
 				<2 1094400000>,
@@ -424,7 +424,7 @@
 				
 				<14 1801000000>, 
 				
-				<13 1901000000>;
+				<15 1901000000>;
 		qcom,speed-bin-fuse-sel = <37 34 3 0>;
 		qcom,cpr-speed-bin-max-corners =
 					<0 0 1 2 6>,
