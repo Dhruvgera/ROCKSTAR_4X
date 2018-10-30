@@ -743,7 +743,7 @@
 			<  998400000 3>,
 			< 1094400000 4>,
 			< 1209600000 6>,
-			< 1344000000 7>;
+			< 1267200000 7>;
 
 		qcom,speed1-bin-v0-c1 =
 			<          0 0>,
@@ -791,8 +791,10 @@
 		compatible = "qcom,msm-cpufreq";
 		clock-names = "l2_clk", "cpu0_clk", "cpu1_clk", "cpu2_clk",
 				"cpu3_clk", "cpu4_clk", "cpu5_clk",
-				"cpu6_clk", "cpu7_clk";
+				"cpu6_clk", "cpu7_clk", "cpu8_clk", "cpu9_clk" ;
 		clocks = <&clock_cpu clk_cci_clk>,
+			 <&clock_cpu clk_a53_bc_clk>,
+			 <&clock_cpu clk_a53_bc_clk>,
 			 <&clock_cpu clk_a53_bc_clk>,
 			 <&clock_cpu clk_a53_bc_clk>,
 			 <&clock_cpu clk_a53_bc_clk>,
@@ -829,7 +831,8 @@
 			 <  902400 >,
 			 <  998400 >,
 			 < 1094400 >,
-			 < 1209600 >;
+			 < 1209600 >, 
+			 < 1267200 >;
 	};
 
 	cci_cache: qcom,cci {
@@ -858,6 +861,9 @@
 			<  5712 /*  748.8 MHz */ >,     /* NOM   */
 			<  6152 /*  806.4 MHz */ >,     /* NOM+  */
 			<  7031 /*  921.6 MHz */ >;     /* TURBO */
+			<  7759 /*  1017.0 MHz */ >,    /* UNLOCK */
+			<  9887 /*  1296.0 MHz */ >;     /* OVERCLOCK */
+			
 	};
 
 	qcom,cpu-bwmon {
@@ -885,6 +891,8 @@
 			<  5712 /*  748.8 MHz */ >,     /* NOM   */
 			<  6152 /*  806.4 MHz */ >,     /* NOM+  */
 			<  7031 /*  921.6 MHz */ >;     /* TURBO */
+			<  7759 /*  1017.0 MHz */ >,     /* UNLOCK */
+			<  9887 /*  1296.0 MHz */ >;     /* OVERCLOCK */
 	};
 
 	devfreq-cpufreq {
@@ -900,13 +908,14 @@
 			
 			
 			
-			< 1701000  7031 >,    /* TURBO */
-			< 1801000  7031 >;
+			< 1701000  9887 >,    /* TURBO */
+			< 1801000  9887 >;
 		cpu-to-dev-map-4 =
 			<  806400  2929 >,	/* SVS  */
 			<  902400  5053 >,	/* NOM   */
 			<  998400  6152 >,	/* NOM+  */
-			< 1209600  7031 >;	/* TURBO */
+			< 1209600  7031 >,      /* TURBO */
+			< 1267200  7759 >,      /* SUPER TURBO */
 		};
 
 		cci-cpufreq {
@@ -922,12 +931,14 @@
 			
 			< 1701000  533333 >, 
 			
-			< 1801000  533333 >;
+			< 1801000  533333 >;     /* TURBO */
 		cpu-to-dev-map-4 =
 			<  806400  400000 >,	/* SVS  */
 			<  902400  400000 >,	/* NOM   */
 			<  998400  533333 >,	/* NOM+  */
-			< 1209600  533333 >;	/* TURBO */
+			< 1209600  533333 >,	/* TURBO */
+			
+			< 1267200  533333 >;	/* TURBO */
 		};
 
 		mincpubw-cpufreq {
@@ -944,7 +955,9 @@
 				
 			cpu-to-dev-map-4 =
 				<  998400 2929 >,
-				< 1209600 4248 >;
+				< 1209600 4248 >,
+				< 1267200 4248 >;
+				
 		};
 	};
 
